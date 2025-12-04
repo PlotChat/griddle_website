@@ -44,8 +44,13 @@ function enableScroll() {
 // Drawing feature
 let drawing = false;
 
-gridEl.addEventListener("pointerdown", () => {
-    drawing = true; 
+gridEl.addEventListener("pointerdown", e => {
+    const cell = document.elementFromPoint(e.clientX, e.clientY);
+    if (cell?.classList.contains("grid-item")) {
+        cell.style.background = "red";
+    }
+    
+    if (!drawing) drawing = true;
     disableScroll();
 });
 gridEl.addEventListener("pointerup", () => {
