@@ -3,9 +3,6 @@ const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
 
 let theme = systemTheme.matches ? "dark" : "light";
 
-// Optional fallback—though unnecessary because light/dark always resolves
-if (!theme) theme = "dark";
-
 document.documentElement.setAttribute("data-theme", theme);
 
 
@@ -18,22 +15,47 @@ grid = {
 const gridEl = document.getElementById("grid");
 
 function displayGridItem(){
-    gridEl.style.gridTemplateColumns = `repeat(${grid.gridSize}, max(0.4%, 0.2rem)`;
+    gridEl.style.gridTemplateColumns = `repeat(${grid.gridSize}, max(0.4%, 0.2rem))`;
 
     const gridItem = gridEl.querySelector(".grid-item");
 
-    for(i = 0; i < grid.gridSize*grid.gridSize - 1; i++){
-        const clone = gridItem.cloneNode(true);
-        gridEl.appendChild(clone);
+    const fragment = document.createDocumentFragment();
+
+    for (let i = 0; i < grid.gridSize * grid.gridSize - 1; i++) {
+        fragment.appendChild(gridItem.cloneNode(true));
     }
+
+    gridEl.appendChild(fragment);
+
+}
+
+displayGridItem();
+
+// Disable/Enable scroll functions for drawing feature
+
+function disableScroll() {
+  document.body.style.overflow = "hidden";
+}
+
+function enableScroll() {
+  document.body.style.overflow = "";
 }
 
 // Drawing feature
 let drawing = false;
 
-gridEl.addEventListener("pointerdown", () => drawing = true);
-gridEl.addEventListener("pointerup", () => drawing = false);
-gridEl.addEventListener("pointerleave", () => drawing = false);
+gridEl.addEventListener("pointerdown", () => {
+    drawing = true; 
+    disableScroll();
+});
+gridEl.addEventListener("pointerup", () => {
+    drawing = false; 
+    enableScroll()
+});
+gridEl.addEventListener("pointerleave", () => {
+    drawing = false;
+    enableScroll();
+});
 
 gridEl.addEventListener("pointermove", e => {
     if (!drawing) return;
@@ -44,5 +66,4 @@ gridEl.addEventListener("pointermove", e => {
     }
 });
 
-displayGridItem();
 
