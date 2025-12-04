@@ -47,21 +47,25 @@ function enableScroll() {
 let drawing = false;
 
 gridEl.addEventListener("pointerdown", e => {
-    const cell = document.elementFromPoint(e.clientX, e.clientY);
-    if (cell?.classList.contains("grid-item")) {
-        cell.style.background = "var(--bg-primary)";
+    if(!drawing){
+        const cell = document.elementFromPoint(e.clientX, e.clientY);
+        if (cell?.classList.contains("grid-item")) {
+            cell.style.background = "var(--bg-primary)";
+        }
     }
-
-    if (!drawing) drawing = true;
+    
+    drawing = true;
     disableScroll();
 });
-gridEl.addEventListener("pointerup", () => {
+
+window.addEventListener("pointerup", () => {
     drawing = false; 
     enableScroll()
 });
-gridEl.addEventListener("pointerleave", () => {
-    drawing = false;
-    enableScroll();
+
+// Prevent the default drag behavior which causes the "stop sign" cursor
+gridEl.addEventListener("dragstart", (e) => {
+  e.preventDefault();
 });
 
 gridEl.addEventListener("pointermove", e => {

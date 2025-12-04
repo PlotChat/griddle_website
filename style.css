@@ -151,6 +151,7 @@ body {
 
 	width: clamp(20rem, 93%, 90rem);
 	height: 78vh;
+	gap:0;
 
 	margin: 0 auto;
 	border: var(--grid-primary) 0.2rem solid;
@@ -160,7 +161,10 @@ body {
 
 .grid-item {
 	aspect-ratio: 1;
-	background-color: var(--grid-primary)
+	background-color: var(--grid-primary);
+
+	user-select: none;
+    -webkit-user-select: none; /* For Safari */
 }
 
 /* End of Grid */
