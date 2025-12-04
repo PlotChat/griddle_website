@@ -74,8 +74,10 @@ h6 {
 	isolation: isolate;
 }
 
-:root{
-	
+/* End of CSS reset*/
+
+/* Initial styles */
+:root {
 }
 
 html[data-theme="dark"] {
@@ -97,15 +99,22 @@ html[data-theme="light"] {
 }
 
 body {
+	position: relative;
+
+	height: 100dvh;
+	padding: 7.5rem 0;
+
 	background-color: var(--bg-base);
 }
 
+/* End of initial styles */
+
+/* Absolute / Fixed Elements */
 #title {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	position: relative;
-	position: absolute;
+	position: fixed;
 	inset: 1.5vh 0 0 1.5vh;
 
 	width: 14rem;
@@ -129,9 +138,44 @@ body {
 	box-shadow: 0.45rem 0.45rem var(--bg-tertiary);
 }
 
+/* End of Absolute / Fixed Elements */
+
+/* Grid */
+
+#grid {
+	display: grid;
+	justify-content: center;
+	align-content: center;
+
+	width: clamp(20rem, 93%, 90rem);
+	height: 78vh;
+
+	margin: 0 auto;
+	border: whitesmoke 0.2rem solid;
+}
+
+.grid-item {
+	aspect-ratio: 1;
+	background-color: rgb(209, 207, 207);
+}
+
+.grid-item:hover{
+	background-color: red;
+}
+
+.grid-item:active{
+	background-color: red;
+}
+
+/* End of Grid */
+
+/* Debug */
+
 *,
 *::before,
 *::after {
 	/* outline: 2px solid lime; */
 	/* background: hsl(0 100% 50% / .1); */
 }
+
+/* End of Debug */
