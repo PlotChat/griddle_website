@@ -1,61 +1,137 @@
 /* CSS Reset by Josh W. Comeau/*
 /* 1. Use a more-intuitive box-sizing model */
-*, *::before, *::after {
-  box-sizing: border-box;
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
 }
 
 /* 2. Remove default margin */
 * {
-  margin: 0;
+	margin: 0;
 }
 
 /* 3. Enable keyword animations */
 @media (prefers-reduced-motion: no-preference) {
-  html {
-    interpolate-size: allow-keywords;
-  }
+	html {
+		interpolate-size: allow-keywords;
+	}
 }
 
 body {
-  /* 4. Add accessible line-height */
-  line-height: 1.5;
-  /* 5. Improve text rendering */
-  -webkit-font-smoothing: antialiased;
+	/* 4. Add accessible line-height */
+	line-height: 1.5;
+	/* 5. Improve text rendering */
+	-webkit-font-smoothing: antialiased;
+	background-color: var(--color-bg);
 }
 
 /* 6. Improve media defaults */
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
 }
 
 /* 7. Inherit fonts for form controls */
-input, button, textarea, select {
-  font: inherit;
+input,
+button,
+textarea,
+select {
+	font: inherit;
 }
 
 /* 8. Avoid text overflows */
-p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
 }
 
 /* 9. Improve line wrapping */
 p {
-  text-wrap: pretty;
+	text-wrap: pretty;
 }
-h1, h2, h3, h4, h5, h6 {
-  text-wrap: balance;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	text-wrap: balance;
 }
 
 /* 10. Create a root stacking context */
-#root, #__next {
-  isolation: isolate;
+#root,
+#__next {
+	isolation: isolate;
+}
+
+:root{
+	
+}
+
+html[data-theme="dark"] {
+	/* Colors (dark mode) */
+	--bg-base: rgb(36, 36, 36);
+	--bg-primary: rgb(25, 90, 147);
+	--bg-secondary: rgb(26, 71, 111);
+	--bg-tertiary: rgb(21, 55, 82);
+	--fc-primary: whitesmoke;
+}
+
+html[data-theme="light"] {
+	/* Colors (light mode) */
+	--bg-base: rgb(217, 217, 217);
+	--bg-primary: rgb(215, 73, 73);
+	--bg-secondary: rgb(190, 54, 54);
+	--bg-tertiary: rgb(161, 48, 48);
+	--fc-primary: rgb(0, 0, 0);
+}
+
+body {
+	background-color: var(--bg-base);
+}
+
+#title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	position: absolute;
+	inset: 1.5vh 0 0 1.5vh;
+
+	width: 14rem;
+	height: 5rem;
+	box-shadow: 0.45rem 0.45rem var(--bg-secondary);
+
+	font-size: 2.5rem;
+	font-weight: 450;
+	font-family: "Doto";
+
+	background-color: var(--bg-primary);
+	color: whitesmoke;
+}
+
+#title-layer {
+	position: absolute;
+	inset: 0;
+	translate: 0.47rem 0.47rem;
+	width: 14rem;
+	height: 5rem;
+	box-shadow: 0.45rem 0.45rem var(--bg-tertiary);
 }
 
 *,
 *::before,
 *::after {
- /* outline: 2px solid lime; */
- /* background: hsl(0 100% 50% / .1); */
+	/* outline: 2px solid lime; */
+	/* background: hsl(0 100% 50% / .1); */
 }
-
