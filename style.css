@@ -87,15 +87,17 @@ html[data-theme="dark"] {
 	--bg-secondary: rgb(26, 71, 111);
 	--bg-tertiary: rgb(21, 55, 82);
 	--fc-primary: whitesmoke;
+	--grid-primary: rgb(209, 207, 207);
 }
 
 html[data-theme="light"] {
 	/* Colors (light mode) */
-	--bg-base: rgb(217, 217, 217);
+	--bg-base: rgb(228, 227, 227);
 	--bg-primary: rgb(215, 73, 73);
 	--bg-secondary: rgb(190, 54, 54);
 	--bg-tertiary: rgb(161, 48, 48);
 	--fc-primary: rgb(0, 0, 0);
+	--grid-primary: rgb(36, 36, 36);
 }
 
 body {
@@ -151,14 +153,14 @@ body {
 	height: 78vh;
 
 	margin: 0 auto;
-	border: whitesmoke 0.2rem solid;
+	border: var(--grid-primary) 0.2rem solid;
 
 	touch-action: none;
 }
 
 .grid-item {
 	aspect-ratio: 1;
-	background-color: rgb(209, 207, 207);
+	background-color: var(--grid-primary)
 }
 
 /* End of Grid */

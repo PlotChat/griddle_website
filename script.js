@@ -3,6 +3,8 @@ const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
 
 let theme = systemTheme.matches ? "dark" : "light";
 
+if(!theme) theme = "dark";
+
 document.documentElement.setAttribute("data-theme", theme);
 
 
@@ -47,9 +49,9 @@ let drawing = false;
 gridEl.addEventListener("pointerdown", e => {
     const cell = document.elementFromPoint(e.clientX, e.clientY);
     if (cell?.classList.contains("grid-item")) {
-        cell.style.background = "red";
+        cell.style.background = "var(--bg-primary)";
     }
-    
+
     if (!drawing) drawing = true;
     disableScroll();
 });
@@ -67,7 +69,7 @@ gridEl.addEventListener("pointermove", e => {
     
     const cell = document.elementFromPoint(e.clientX, e.clientY);
     if (cell?.classList.contains("grid-item")) {
-        cell.style.background = "red";
+        cell.style.background = "var(--bg-primary)";
     }
 });
 
