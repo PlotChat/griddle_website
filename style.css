@@ -161,14 +161,6 @@ body {
 	background-color: rgb(209, 207, 207);
 }
 
-.grid-item:hover{
-	background-color: red;
-}
-
-.grid-item:active{
-	background-color: red;
-}
-
 /* End of Grid */
 
 /* Debug */
