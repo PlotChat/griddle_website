@@ -1,4 +1,4 @@
-/* CSS Reset by Josh W. Comeau/*
+/* CSS Reset by Josh W. Comeau */
 /* 1. Use a more-intuitive box-sizing model */
 *,
 *::before,
@@ -152,6 +152,8 @@ body {
 
 	margin: 0 auto;
 	border: whitesmoke 0.2rem solid;
+
+	touch-action: none;
 }
 
 .grid-item {
