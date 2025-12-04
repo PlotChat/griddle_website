@@ -15,11 +15,10 @@ grid = {
 }
 
 // Display grid items by multiplying one
-function displayGridItem(){
-    const gridEl = document.getElementById("grid");
+const gridEl = document.getElementById("grid");
 
+function displayGridItem(){
     gridEl.style.gridTemplateColumns = `repeat(${grid.gridSize}, max(0.4%, 0.2rem)`;
-    gridEl.style.gridTemplateRows = `repeat(${grid.gridSize}, auto-fill)`;
 
     const gridItem = gridEl.querySelector(".grid-item");
 
@@ -28,6 +27,22 @@ function displayGridItem(){
         gridEl.appendChild(clone);
     }
 }
+
+// Drawing feature
+let drawing = false;
+
+gridEl.addEventListener("pointerdown", () => drawing = true);
+gridEl.addEventListener("pointerup", () => drawing = false);
+gridEl.addEventListener("pointerleave", () => drawing = false);
+
+gridEl.addEventListener("pointermove", e => {
+    if (!drawing) return;
+    
+    const cell = document.elementFromPoint(e.clientX, e.clientY);
+    if (cell?.classList.contains("grid-item")) {
+        cell.style.background = "red";
+    }
+});
 
 displayGridItem();
 
