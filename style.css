@@ -107,6 +107,7 @@ body {
 	padding: 7.5rem 0;
 
 	background-color: var(--bg-base);
+	touch-action: none;
 }
 
 /* End of initial styles */
@@ -155,8 +156,6 @@ body {
 
 	margin: 0 auto;
 	border: var(--grid-primary) 0.2rem solid;
-
-	touch-action: none;
 }
 
 .grid-item {
@@ -168,6 +167,10 @@ body {
 }
 
 /* End of Grid */
+
+img{
+	display:none;
+}
 
 /* Debug */
 
