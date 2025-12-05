@@ -135,7 +135,7 @@ body {
 #title-layer {
 	position: absolute;
 	inset: 0;
-	translate: 0.47rem 0.47rem;
+	translate: 0.45rem 0.45rem;
 	width: 14rem;
 	height: 5rem;
 	box-shadow: 0.45rem 0.45rem var(--bg-tertiary);
@@ -151,7 +151,7 @@ body {
 	align-content: center;
 
 	width: clamp(20rem, 93%, 90rem);
-	height: 78vh;
+	height: 78dvh;
 	gap:0;
 
 	margin: 0 auto;
