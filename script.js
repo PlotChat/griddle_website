@@ -77,4 +77,27 @@ gridEl.addEventListener("pointermove", e => {
     }
 });
 
+// Prevent zooming in IOS
+
+let lastTouchEnd = 0;
+
+document.addEventListener('touchend', function (event) {
+    const now = (new Date()).getTime();
+    
+    // If the time between taps is less than 300ms, it's a double tap
+    if (now - lastTouchEnd <= 300) {
+        event.preventDefault();
+    }
+    
+    lastTouchEnd = now;
+}, false);
+
+function resetGrid() {
+    const gridItemList = document.querySelectorAll("grid-item");
+    gridItemList.forEach(item => {
+        item.style.backgroundColor = "var(--grid-primary)";
+    });
+}
+
+
 
