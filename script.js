@@ -17,7 +17,7 @@ grid = {
 const gridEl = document.getElementById("grid");
 
 function displayGridItem(){
-    gridEl.style.gridTemplateColumns = `repeat(${grid.gridSize}, max(0.4%, 0.2rem))`;
+    gridEl.style.gridTemplateColumns = `repeat(${grid.gridSize}, max(0.4%, 0.225rem))`;
 
     const gridItem = gridEl.querySelector(".grid-item");
 
