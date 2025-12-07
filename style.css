@@ -80,49 +80,59 @@ h6 {
 
 html[data-theme="dark"] {
 	/* Colors (dark mode) */
-	--bg-base-primary: rgb(36, 36, 36);
-	--bg-base-secondary: rgb(63, 63, 63);
+	--bg-base-primary: rgb(26, 26, 26);
+	--bg-base-secondary: rgb(78, 78, 78);
+	--bg-base-tertiary: rgb(62, 61, 61);
+	--bg-base-quaternary: rgb(46, 46, 46);
 	--bg-primary: rgb(25, 90, 147);
 	--bg-secondary: rgb(26, 71, 111);
 	--bg-tertiary: rgb(21, 55, 82);
 	--fc-primary: whitesmoke;
 	--grid-primary: rgb(209, 207, 207);
+	--svg-invert:95%;
 }
 
 html[data-theme="light"] {
 	/* Colors (light mode) */
-	--bg-base-primary: rgb(228, 227, 227);
-	--bg-base-secondary: rgb(211, 210, 210);
+	--bg-base-primary: rgb(237, 235, 235);
+	--bg-base-secondary: rgb(181, 179, 179);
+	--bg-base-tertiary: rgb(153, 152, 152);
+	--bg-base-quaternary: rgb(123, 123, 123);
 	--bg-primary: rgb(215, 73, 73);
 	--bg-secondary: rgb(190, 54, 54);
 	--bg-tertiary: rgb(161, 48, 48);
 	--fc-primary: rgb(0, 0, 0);
-	--grid-primary: rgb(36, 36, 36);
+	--grid-primary: rgb(57, 57, 57);
+	--svg-invert:0%;
 }
 
-#app-shell{
+#app-shell {
 	position: relative;
 
 	width: 100%;
 	min-width: 320px;
-	max-width: 1600px;
-	height: 100dvh;
-	padding: clamp(7rem, 12vh, 15rem) 0;
+	max-width: 1920px;
+	min-height: 100dvh;
+
+	padding: clamp(6rem, 12vh, 15rem) 0;
+
 	margin: 0 auto;
 
 	background-color: var(--bg-base-primary);
 	touch-action: none;
 }
 
-#fixed-hud{
-	position:fixed;
-	inset:0;
+#fixed-hud {
+	position: fixed;
+	display: flex;
+	inset: 0;
 
-	width:100%;
+	width: 100%;
 	max-width: 1600px;
-	margin:0 auto;
+	padding: clamp(0.5rem, 1vw, 2rem);
+	margin: 0 auto;
 
-	z-index:100;
+	z-index: 100;
 	pointer-events: none;
 }
 
@@ -130,18 +140,17 @@ html[data-theme="light"] {
 
 /* Absolute / Fixed Elements */
 #title {
-	position: absolute;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	inset: 1.5vh 0 0 1.5vh;
 
-	width: clamp(10rem, 19vw, 20rem);
-	height: calc(2vw + 4rem);
-	box-shadow: 0.45rem 0.45rem var(--bg-secondary), 0.90rem 0.90rem 0 var(--bg-tertiary);
+	width: clamp(8.5rem, 19vw, 20rem);
+	height: calc(2vw + 3.2rem);
+	box-shadow: 0.45rem 0.45rem var(--bg-secondary),
+		0.9rem 0.9rem 0 var(--bg-tertiary);
 
-	font-size: clamp(1.8rem, 2vw, 3rem);
-	font-weight: 450;
+	font-size: clamp(1.3rem, 2.3vw, 3rem);
+	font-weight: 550;
 	font-family: "Doto";
 
 	background-color: var(--bg-primary);
@@ -149,17 +158,33 @@ html[data-theme="light"] {
 }
 
 #tools {
-	--clamping: clamp(5rem, 6vw, 18rem);
-
-	position: absolute;
 	display: grid;
-	grid-template-rows: var(--clamping) 0 0 0;
-	overflow:hidden;
+	overflow: hidden;
+	align-self: start;
 
-	width: var(--clamping);
+	width: clamp(3.8rem, 5vw, 18rem);
+	grid-template-rows: auto auto;
+	box-shadow: -0.45rem 0.45rem var(--bg-base-tertiary),
+		-0.9rem 0.9rem 0 var(--bg-base-quaternary);
+	margin-left: auto;
 
-	inset: 2.2vh 3vh auto auto;
 	background-color: var(--bg-base-secondary);
+	pointer-events: auto;
+}
+
+#tools-drawer{
+	display:grid;
+
+	transition: grid-template-rows 0.15s ease-in-out;
+	grid-template-rows: 0fr;
+}
+
+#tools-drawer.tools-drawer-opened{
+	grid-template-rows: 1fr;
+}
+
+#tools-drawer-content{
+	overflow:hidden;
 }
 
 .tool-btn {
@@ -168,19 +193,44 @@ html[data-theme="light"] {
 
 	box-sizing: border-box;
 	padding: 20%;
-	width: 100%;
+
+	aspect-ratio: 1;
+	cursor:pointer;
 }
 
-.tool-btn {
-	width: 100%;
-	background-color: red;
-
-	cursor: pointer;
+.tool-btn img{
+	filter:invert(var(--svg-invert));
 }
 
-.tool-btn:first-child {
+#open-btn {
 	background-color: var(--bg-base-secondary) !important;
 }
+
+.tools-opened{
+	grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+#tool-color{
+	display:grid;
+}
+
+#tool-color >*{
+	grid-area: 1 / 1;
+}
+
+#tool-color-fill{
+	background-color: red;
+	border-radius: 50%;
+	width:80%;
+	height:80%;
+	z-index:1;
+}
+
+#tool-color img{
+	z-index:0;
+}
+
+
 
 /* End of Absolute / Fixed Elements */
 
@@ -191,14 +241,15 @@ html[data-theme="light"] {
 	justify-content: center;
 	align-content: center;
 
-	width: clamp(20rem, 93%, 90rem);
-	height: 78dvh;
+	width: clamp(2rem, 93vw, 35rem);
+	min-height: 19rem;
+	max-height: 80dvh;
+	padding: clamp(2rem, 3vw, 3rem);
+	margin: 0 auto;
 	gap: 0;
 
-	margin: 0 auto;
 	border: var(--grid-primary) 0.2rem solid;
-
-	overflow: scroll;
+	overflow:scroll;
 }
 
 .grid-item {
@@ -210,8 +261,6 @@ html[data-theme="light"] {
 }
 
 /* End of Grid */
-
-
 
 /* Debug */
 
