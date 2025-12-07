@@ -10,14 +10,14 @@ document.documentElement.setAttribute("data-theme", theme);
 
 // Grid Settings
 grid = {
-    gridSize: 100,
+    gridSize: 64,
 }
 
 // Display grid items by multiplying one
 const gridEl = document.getElementById("grid");
 
 function displayGridItem(){
-    gridEl.style.gridTemplateColumns = `repeat(${grid.gridSize}, max(0.4%, 0.225rem))`;
+    gridEl.style.gridTemplateColumns = `repeat(${grid.gridSize}, 1fr)`; 
 
     const gridItem = gridEl.querySelector(".grid-item");
 
