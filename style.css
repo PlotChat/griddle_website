@@ -191,10 +191,11 @@ html[data-theme="light"] {
 	display: grid;
 	place-items: center;
 
+	width:100%;
 	box-sizing: border-box;
 	padding: 20%;
 
-	aspect-ratio: 1;
+
 	cursor:pointer;
 }
 
@@ -210,9 +211,7 @@ html[data-theme="light"] {
 	grid-template-rows: 1fr 1fr 1fr 1fr;
 }
 
-#tool-color{
-	display:grid;
-}
+
 
 #tool-color >*{
 	grid-area: 1 / 1;
@@ -221,13 +220,21 @@ html[data-theme="light"] {
 #tool-color-fill{
 	background-color: red;
 	border-radius: 50%;
-	width:80%;
-	height:80%;
+	width:70%;
+	aspect-ratio:1;
 	z-index:1;
 }
 
 #tool-color img{
 	z-index:0;
+}
+
+#tools input{
+	width:100%;
+	height:100%;
+	inset:0;
+	z-index:2;
+	opacity:0;
 }
 
 

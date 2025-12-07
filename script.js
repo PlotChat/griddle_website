@@ -11,6 +11,7 @@ document.documentElement.setAttribute("data-theme", theme);
 // Grid Settings
 grid = {
     gridSize: 64,
+    curColor: "#000000",
 }
 
 // Display grid items by multiplying one
@@ -50,7 +51,7 @@ gridEl.addEventListener("pointerdown", e => {
     if(!drawing){
         const cell = document.elementFromPoint(e.clientX, e.clientY);
         if (cell?.classList.contains("grid-item")) {
-            cell.style.background = "var(--bg-primary)";
+            cell.style.background = grid.curColor;
         }
     }
     
@@ -73,7 +74,7 @@ gridEl.addEventListener("pointermove", e => {
     
     const cell = document.elementFromPoint(e.clientX, e.clientY);
     if (cell?.classList.contains("grid-item")) {
-        cell.style.background = "var(--bg-primary)";
+        cell.style.background = grid.curColor;
     }
 });
 
@@ -107,5 +108,14 @@ openBtn.addEventListener("click", () => {
     toolsDrawer.classList.toggle("tools-drawer-opened");
 })
 
+// Color picker
+const colorPicker = document.getElementById("color-picker");
+const circleFill = document.getElementById("tool-color-fill");
+
+colorPicker.addEventListener("change", () => {
+    pickedColor = colorPicker.value;
+    grid.curColor = pickedColor;
+    circleFill.style.backgroundColor = pickedColor;
+})
 
 
