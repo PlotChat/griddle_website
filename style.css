@@ -80,7 +80,7 @@ h6 {
 
 html[data-theme="dark"] {
 	/* Colors (dark mode) */
-	--bg-base-primary: rgb(26, 26, 26);
+	--bg-base-primary: #1a1a1a;
 	--bg-base-secondary: rgb(78, 78, 78);
 	--bg-base-tertiary: rgb(62, 61, 61);
 	--bg-base-quaternary: rgb(46, 46, 46);
@@ -94,7 +94,7 @@ html[data-theme="dark"] {
 
 html[data-theme="light"] {
 	/* Colors (light mode) */
-	--bg-base-primary: rgb(237, 235, 235);
+	--bg-base-primary: #edebeb;
 	--bg-base-secondary: rgb(181, 179, 179);
 	--bg-base-tertiary: rgb(153, 152, 152);
 	--bg-base-quaternary: rgb(123, 123, 123);
@@ -218,7 +218,7 @@ html[data-theme="light"] {
 }
 
 #tool-color-fill{
-	background-color: red;
+	background-color: #ff0000;
 	border-radius: 50%;
 	width:70%;
 	aspect-ratio:1;

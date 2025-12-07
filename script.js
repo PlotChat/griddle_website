@@ -118,4 +118,15 @@ colorPicker.addEventListener("change", () => {
     circleFill.style.backgroundColor = pickedColor;
 })
 
+// Eraser
+const rootStyles = getComputedStyle(document.documentElement);
+let defaultColor = rootStyles.getPropertyValue("--grid-primary").trim();
+console.log(defaultColor);
+const eraser = document.getElementById("tool-eraser");
+
+eraser.addEventListener("click", () => {
+    grid.curColor = defaultColor;
+    circleFill.style.backgroundColor = defaultColor;
+})
+
 
