@@ -99,5 +99,13 @@ function resetGrid() {
     });
 }
 
+// Expand tools when clicked
+const openBtn = document.getElementById("open-btn");
+const toolsDrawer = document.getElementById("tools-drawer");
+
+openBtn.addEventListener("click", () => {
+    toolsDrawer.classList.toggle("tools-drawer-opened");
+})
+
 
 
