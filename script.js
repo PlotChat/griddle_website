@@ -16,8 +16,12 @@ grid = {
 
 // Display grid items by multiplying one
 const gridEl = document.getElementById("grid");
+const template = document.getElementById("grid-item-template").content;
 
-function displayGridItem(){
+function displayGridItems(){
+    let templateClone = template.cloneNode(true);
+    gridEl.appendChild(templateClone);
+
     gridEl.style.gridTemplateColumns = `repeat(${grid.gridSize}, 1fr)`; 
 
     const gridItem = gridEl.querySelector(".grid-item");
@@ -32,7 +36,12 @@ function displayGridItem(){
 
 }
 
-displayGridItem();
+// Remove all grid items but 1:
+function removeGridItems(){
+    gridEl.innerHTML = "";
+}
+
+displayGridItems();
 
 // Disable/Enable scroll functions for drawing feature
 
@@ -138,3 +147,21 @@ resetTool.addEventListener("click", () => {
         item.style.backgroundColor = rootStyles.getPropertyValue("--grid-primary").trim()
     })
 });
+
+// Change grid tool
+const gridTool = document.getElementById("tool-change-grid");
+gridTool.addEventListener("click", () => {
+    while(true){
+        sizeInput = prompt("Enter square grid's size (2 - 150)");
+        if(sizeInput >= 2 && sizeInput <= 150){
+            grid.gridSize = sizeInput;
+            removeGridItems();
+            displayGridItems();
+            break;
+        } else if(sizeInput == null){
+            break;
+        } else{
+            alert("Wrong input. Try again");
+        }
+    }
+})

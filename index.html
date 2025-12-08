@@ -19,7 +19,6 @@
 	<body>
 		<div id="app-shell">
 			<div id="grid">
-				<div class="grid-item"></div>
 			</div>
 		</div>
 		<div id="fixed-hud">
@@ -38,6 +37,9 @@
 						<div class="tool-btn" id="tool-eraser">
 							<img src="SVGs/eraser-clean-svgrepo-com.svg" />
 						</div>
+						<div class="tool-btn" id="tool-change-grid">
+							<img src="SVGs/grid-svgrepo-com.svg">
+						</div>
 						<div class="tool-btn" id="tool-reset">
 							<img src="SVGs/close-cross-svgrepo-com.svg">
 						</div>
@@ -45,6 +47,9 @@
 				</div>
 			</div>
 		</div>
+		<template id="grid-item-template">
+			<div class="grid-item"></div>
+		</template>
 		<script src="script.js"></script>
 	</body>
 </html>
