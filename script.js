@@ -142,6 +142,10 @@ eraser.addEventListener("click", () => {
 const resetTool = document.getElementById("tool-reset");
 
 resetTool.addEventListener("click", () => {
+    userChoice = confirm("Do you want to reset your griddle?");
+    if(!userChoice){
+        return;
+    }
     const gridItems = document.querySelectorAll(".grid-item");
     gridItems.forEach(item =>{
         item.style.backgroundColor = rootStyles.getPropertyValue("--grid-primary").trim()
