@@ -195,7 +195,6 @@ html[data-theme="light"] {
 	box-sizing: border-box;
 	padding: 20%;
 
-
 	cursor:pointer;
 }
 
@@ -206,12 +205,6 @@ html[data-theme="light"] {
 #open-btn {
 	background-color: var(--bg-base-secondary) !important;
 }
-
-.tools-opened{
-	grid-template-rows: 1fr 1fr 1fr 1fr;
-}
-
-
 
 #tool-color >*{
 	grid-area: 1 / 1;
@@ -236,8 +229,6 @@ html[data-theme="light"] {
 	z-index:2;
 	opacity:0;
 }
-
-
 
 /* End of Absolute / Fixed Elements */
 
