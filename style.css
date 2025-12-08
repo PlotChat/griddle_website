@@ -119,7 +119,6 @@ html[data-theme="light"] {
 	margin: 0 auto;
 
 	background-color: var(--bg-base-primary);
-	touch-action: none;
 }
 
 #fixed-hud {
@@ -243,7 +242,7 @@ html[data-theme="light"] {
 	width: clamp(2rem, 93vw, 35rem);
 	min-height: 19rem;
 	max-height: 80dvh;
-	padding: clamp(2rem, 3vw, 3rem);
+	padding: clamp(3rem, 12%, 5rem);
 	margin: 0 auto;
 	gap: 0;
 
@@ -256,6 +255,7 @@ html[data-theme="light"] {
 	background-color: var(--grid-primary);
 
 	user-select: none;
+	touch-action: none;
 	-webkit-user-select: none; /* For Safari */
 }
 
