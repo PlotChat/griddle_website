@@ -140,9 +140,9 @@ eraser.addEventListener("click", () => {
 
 // Reset tool
 const resetTool = document.getElementById("tool-reset");
-const gridItems = document.querySelectorAll(".grid-item");
 
 resetTool.addEventListener("click", () => {
+    const gridItems = document.querySelectorAll(".grid-item");
     gridItems.forEach(item =>{
         item.style.backgroundColor = rootStyles.getPropertyValue("--grid-primary").trim()
     })
