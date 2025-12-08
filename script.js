@@ -108,7 +108,7 @@ openBtn.addEventListener("click", () => {
     toolsDrawer.classList.toggle("tools-drawer-opened");
 })
 
-// Color picker
+// Color picker tool
 const colorPicker = document.getElementById("color-picker");
 const circleFill = document.getElementById("tool-color-fill");
 
@@ -118,7 +118,7 @@ colorPicker.addEventListener("change", () => {
     circleFill.style.backgroundColor = pickedColor;
 })
 
-// Eraser
+// Eraser tool
 const rootStyles = getComputedStyle(document.documentElement);
 let defaultColor = rootStyles.getPropertyValue("--grid-primary").trim();
 console.log(defaultColor);
@@ -129,4 +129,12 @@ eraser.addEventListener("click", () => {
     circleFill.style.backgroundColor = defaultColor;
 })
 
+// Reset tool
+const resetTool = document.getElementById("tool-reset");
+const gridItems = document.querySelectorAll(".grid-item");
 
+resetTool.addEventListener("click", () => {
+    gridItems.forEach(item =>{
+        item.style.backgroundColor = rootStyles.getPropertyValue("--grid-primary").trim()
+    })
+});
