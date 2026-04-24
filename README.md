@@ -10,6 +10,6 @@ This site was built using [Github Pages](https://plotchat.github.io/griddle_webs
 
 Install this project if you want to! There's nothing much so you can just simply clone it.
 ```bash
-    git clone https://github.com/username/repo-name.git
+    git clone https://github.com/PlotChat/griddle-website.git
     cd repo-name
 ```
